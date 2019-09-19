@@ -37,4 +37,11 @@ public class Control {
 	public Optional<Alien> getAlien(@PathVariable Integer id) {
 		return repo.findById(id);
 	}
+	
+	@RequestMapping("/")
+	@ResponseBody
+	public String hello() {
+		return "Hello";
+	}
+	
 }
