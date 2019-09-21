@@ -22,15 +22,12 @@ public class Packet {
 	public String labNo;
 	public String os;
 	
-	
-	
 	public Packet() {
 			LocalDateTime myDateObj = LocalDateTime.now();
 		    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		    this.dateAndTime = myDateObj.format(myFormatObj);
 		    
 	}
-	
 	
 	public String getLabNo() {
 		return labNo;

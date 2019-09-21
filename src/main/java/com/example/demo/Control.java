@@ -21,10 +21,15 @@ public class Control {
 	@Autowired
 	pcRepo pcrepo;
 	
+	@Autowired
+	pcAndLabRepo pcandlabrepo;
+	
 	
 	@RequestMapping("/ping")
 	@ResponseBody
-	public long add(Packet b) {
+	public String add(Packet b) {
+		
+		if(pcandlabrepo.existsById(b.mac)) {
 		
 		//saving data related to ping table
 		Alien a= new Alien();
@@ -51,7 +56,15 @@ public class Control {
 		PC.setOS(b.os);
 		pcrepo.save(PC);
 	
-		return repo.count();
+		return "Success";
+		}
+		else
+		{
+			System.out.println(b.mac);
+			List qwe=(List) pcandlabrepo.findAll();
+			System.out.println(qwe.toString());
+			return "You are not un authorised";
+		}
 	}
 	
 
