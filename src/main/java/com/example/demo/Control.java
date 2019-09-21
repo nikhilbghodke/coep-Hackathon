@@ -24,6 +24,9 @@ public class Control {
 	@Autowired
 	pcAndLabRepo pcandlabrepo;
 	
+	@Autowired
+	timeSavedRepo timesavedrepo;
+	
 	
 	@RequestMapping("/ping")
 	@ResponseBody
@@ -98,5 +101,17 @@ public class Control {
 	@RequestMapping("/getNewAverage")
 	public String getNewAvg() {
 		return "10";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/shutdown")
+	public String getNewAvg(String timeSaved,String upTime, String macAddress) {
+		timeSaved a =new timeSaved();
+		a.setTimeSaved(timeSaved);
+		a.setMac_Address(macAddress);
+		a.setUptime(upTime);
+		System.out.println(a.getMac_Address());
+		timesavedrepo.save(a);
+		return "yes";
 	}
 }
