@@ -13,37 +13,44 @@ import javax.persistence.Table;
 public class Alien {
 
 
+	
 	@Id
-	@Column(name="macaddress")
-	private Integer id;
+	@Column(name="mac_Address")
+	private String id;
 	
-	@Column(name="last")
-	private String name;
+	@Column(name="up_Time")
+	private String uptime;
 	
+	@Column(name="start_Time")
+	private String starttime;
 	
-	public Alien(){
-	    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-	    Date date = new Date(); 
-	    this.name=formatter.format(date);
+
+	public String getStarttime() {
+		return starttime;
 	}
-	public Integer getId() {
+
+	public void setStarttime(String starttime) {
+		this.starttime = starttime;
+	}
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUptime() {
+		return uptime;
 	}
 
-	public void setName(String name) {
-	this.name=name;
+	public void setUptime(String uptime) {
+		this.uptime = uptime;
 	}
 
 	@Override
 	public String toString() {
-		return "Alien [id=" + id + ", name=" + name + "]";
+		return "Alien [id=" + id + ", name=" + uptime + "]";
 	}	
 }
