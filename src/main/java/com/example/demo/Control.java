@@ -88,4 +88,15 @@ public class Control {
 		return "Hello";
 	}
 	
+	@ResponseBody
+	@RequestMapping("/getAverage")
+	public String getAvg() {
+		return "10";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getNewAverage")
+	public String getNewAvg() {
+		return "10";
+	}
 }
